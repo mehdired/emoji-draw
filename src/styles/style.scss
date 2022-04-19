@@ -1,0 +1,166 @@
+$darkblue: #00232b;
+
+@keyframes blink {
+	0% {
+		transform: scaleY(1);
+	}
+
+	3% {
+		transform: scaleY(0.1);
+	}
+
+	7% {
+		transform: scaleY(1);
+	}
+}
+
+body {
+	background-color: $darkblue;
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.eyes {
+	width: 40px;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	left: 12px;
+	animation: 4s linear blink infinite;
+
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background-color: $darkblue;
+	}
+}
+
+.eyebrows {
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 23px;
+		height: 4px;
+		width: 12px;
+		background-color: $darkblue;
+	}
+
+	&::before {
+		left: 10px;
+		transform: rotate(16deg);
+	}
+	&::after {
+		left: 42px;
+		transform: rotate(-16deg);
+	}
+}
+
+.emoji {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	position: relative;
+
+	&:not(:last-child) {
+		margin-right: 16px;
+	}
+
+	&:first-child {
+		background: radial-gradient(93.75% 96.51% at 6.25% 97.32%, #ff5234 0%, #ff7e51 100%);
+
+		.eyes {
+			bottom: 14px;
+		}
+
+		.mouth {
+			height: 4px;
+			width: 8px;
+			border-radius: 8px 8px 0 0;
+			border: 4px solid $darkblue;
+			border-bottom: 0;
+			position: absolute;
+			top: 37px;
+			left: 24px;
+		}
+	}
+	&:nth-child(2) {
+		background: radial-gradient(93.75% 96.51% at 6.25% 97.32%, #ff7035 0%, #ffaa51 100%);
+
+		.eyes {
+			bottom: 20px;
+		}
+
+		.mouth {
+			height: 4px;
+			width: 8px;
+			border-radius: 8px 8px 0 0;
+			border: 4px solid $darkblue;
+			border-bottom: 0;
+			position: absolute;
+			top: 33px;
+			left: 24px;
+		}
+	}
+	&:nth-child(3) {
+		background: radial-gradient(93.75% 96.51% at 6.25% 97.32%, #ffb652 0%, #ffd27e 100%);
+
+		.eyes {
+			bottom: 24px;
+		}
+
+		.mouth {
+			position: absolute;
+			width: 16px;
+			height: 4px;
+			left: 24px;
+			top: 32px;
+			background: $darkblue;
+		}
+	}
+	&:nth-child(4) {
+		background: radial-gradient(93.75% 96.51% at 6.25% 97.32%, #ffca2f 0%, #ffe150 100%);
+
+		.eyes {
+			bottom: 30px;
+		}
+
+		.mouth {
+			height: 4px;
+			width: 8px;
+			border-radius: 0px 0px 8px 8px;
+			border: 4px solid $darkblue;
+			border-top: 0;
+			position: absolute;
+			bottom: 22px;
+			left: 24px;
+		}
+	}
+	&:last-child {
+		background: radial-gradient(93.75% 96.51% at 6.25% 97.32%, #ffea41 0%, #fff366 100%);
+
+		.eyes {
+			bottom: 36px;
+		}
+
+		.mouth {
+			width: 8px;
+			border-radius: 0px 0px 8px 8px;
+			border: 4px solid $darkblue;
+			position: absolute;
+			background-color: $darkblue;
+			bottom: 28px;
+			left: 24px;
+		}
+	}
+}
